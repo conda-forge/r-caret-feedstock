@@ -1,4 +1,4 @@
-{% set version = '6.0-76' %}
+{% set version = '6.0-78' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/caret_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/caret/caret_{{ version }}.tar.gz
-  sha256: 8c210893d9be02b5ce09153302d72205dba8bab47c077db4c9e62259efef61f0
+  sha256: dea8799853b9b0843d994b4dad09d1535547f36752ff70a956004111e3ef3640
 
 build:
   number: 0
@@ -25,26 +25,29 @@ requirements:
   build:
     - r-base
     - r-modelmetrics >=1.1.0
-    - r-car
     - r-foreach
     - r-ggplot2
     - r-lattice >=0.20
     - r-nlme
     - r-plyr
+    - r-recipes >=0.0.1
     - r-reshape2
+    - r-withr >=2.0.0
     - posix                # [win]
     - {{native}}toolchain  # [win]
     - gcc                  # [not win]
+
   run:
     - r-base
     - r-modelmetrics >=1.1.0
-    - r-car
     - r-foreach
     - r-ggplot2
     - r-lattice >=0.20
     - r-nlme
     - r-plyr
+    - r-recipes >=0.0.1
     - r-reshape2
+    - r-withr >=2.0.0
     - libgcc  # [not win]
 
 test:
@@ -57,8 +60,13 @@ about:
   license: GPL (>= 2)
   summary: Misc functions for training and plotting classification and regression models.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
