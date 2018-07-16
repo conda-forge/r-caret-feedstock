@@ -1,5 +1,4 @@
-{% set version = '6.0-79' %}
-
+{% set version = '6.0-80' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +9,12 @@ package:
 source:
   fn: caret_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/caret_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/caret/caret_{{ version }}.tar.gz
-  sha256: 146a998fd300b54ac5a1cb827dfc5d4c520b7a4afb95bf0792d5bc740497dac4
+    - {{ cran_mirror }}/src/contrib/caret_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/caret/caret_{{ version }}.tar.gz
+  sha256: 0705874a30bd5960a51616338534255734e792a4af3f28368e1040f7bf820d76
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   skip: true  # [win32]
   rpaths:
@@ -23,6 +23,13 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed  # [win]
+    - {{posix}}coreutils  # [win]
+  host:
     - r-base
     - r-modelmetrics >=1.1.0
     - r-foreach
@@ -33,12 +40,9 @@ requirements:
     - r-recipes >=0.0.1
     - r-reshape2
     - r-withr >=2.0.0
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-modelmetrics >=1.1.0
     - r-foreach
     - r-ggplot2
@@ -48,11 +52,10 @@ requirements:
     - r-recipes >=0.0.1
     - r-reshape2
     - r-withr >=2.0.0
-    - libgcc  # [not win]
 
 test:
   commands:
-    - $R -e "library('caret')"  # [not win]
+    - $R -e "library('caret')"           # [not win]
     - "\"%R%\" -e \"library('caret')\""  # [win]
 
 about:
