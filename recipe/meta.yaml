@@ -1,4 +1,4 @@
-{% set version = '6.0-82' %}
+{% set version = '6.0-84' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/caret_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/caret/caret_{{ version }}.tar.gz
-  sha256: afe5478d58424944cb92b7d8e802d1d7cb60a09a3132ef9ca0f4d0ac62acf37d
+  sha256: a1831c086a9c71b469f7405649ba04517683cdf229e119c005189cf57244090d
 
 build:
   merge_build_host: True  # [win]
@@ -69,12 +69,12 @@ extra:
     - conda-forge/r
 
 # Package: caret
-# Version: 6.0-82
+# Version: 6.0-84
 # Title: Classification and Regression Training
 # Author: Max Kuhn. Contributions from Jed Wing, Steve Weston, Andre Williams, Chris Keefer, Allan Engelhardt, Tony Cooper, Zachary Mayer, Brenton Kenkel, the R Core Team, Michael Benesty, Reynald Lescarbeau, Andrew Ziem, Luca Scrucca, Yuan Tang, Can Candan, and Tyler Hunt.
 # Description: Misc functions for training and plotting classification and regression models.
 # Maintainer: Max Kuhn <mxkuhn@gmail.com>
-# Depends: R (>= 3.5.0), lattice (>= 0.20), ggplot2
+# Depends: R (>= 3.2.0), lattice (>= 0.20), ggplot2
 # URL: https://github.com/topepo/caret/
 # BugReports: https://github.com/topepo/caret/issues
 # Imports: foreach, methods, plyr, ModelMetrics (>= 1.1.0), nlme, reshape2, stats, stats4, utils, grDevices, recipes (>= 0.1.4), withr (>= 2.0.0)
@@ -84,6 +84,6 @@ extra:
 # VignetteBuilder: knitr
 # Encoding: UTF-8
 # NeedsCompilation: yes
-# Packaged: 2019-03-26 08:59:49 UTC; max
+# Packaged: 2019-04-26 14:30:05 UTC; max
 # Repository: CRAN
-# Date/Publication: 2019-03-26 11:33:20 UTC
+# Date/Publication: 2019-04-27 04:50:03 UTC
