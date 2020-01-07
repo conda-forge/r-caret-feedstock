@@ -39,6 +39,7 @@ requirements:
     - r-recipes >=0.1.4
     - r-reshape2
     - r-withr >=2.0.0
+    - r-proc
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
@@ -51,6 +52,7 @@ requirements:
     - r-recipes >=0.1.4
     - r-reshape2
     - r-withr >=2.0.0
+    - r-proc
 
 test:
   commands:
