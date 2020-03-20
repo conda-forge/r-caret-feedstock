@@ -1,4 +1,4 @@
-{% set version = "6.0-85" %}
+{% set version = "6.0-86" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/caret_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/caret/caret_{{ version }}.tar.gz
-  sha256: da29d9bf30f519fd4ca7b7fc834f61d46fc99540e17d69afd065adcdbe70ab4b
+  sha256: da4a1c7c3fbf645c5b02871e563a77404622b83623f0d1c5dc1425de7aa4ce37
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -64,7 +64,7 @@ about:
   license: GPL (>= 2)
   summary: Misc functions for training and plotting classification and regression models.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
 extra:
   recipe-maintainers:
