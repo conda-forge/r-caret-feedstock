@@ -3,7 +3,7 @@ About r-caret
 
 Home: https://github.com/topepo/caret/
 
-Package license: GPL (>= 2)
+Package license: GPL-2.0-or-later
 
 Feedstock license: BSD 3-Clause
 
