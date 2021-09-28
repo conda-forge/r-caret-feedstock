@@ -1,4 +1,4 @@
-{% set version = "6.0-88" %}
+{% set version = "6.0-89" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/caret_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/caret/caret_{{ version }}.tar.gz
-  sha256: fa10d1600b3cce51ee8c64a39281f685eb843120b15e0dd0954623aea1f78c9c
+  sha256: 043b602360a6434f6e61e13ea8483f894f818d9f6e52d4a721e2ed5007612221
 
 build:
   merge_build_host: true  # [win]
