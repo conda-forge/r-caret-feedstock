@@ -21,6 +21,18 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-modelmetrics             # [build_platform != target_platform]
+    - r-plyr                     # [build_platform != target_platform]
+    - r-recipes                  # [build_platform != target_platform]
+    - r-nlme                     # [build_platform != target_platform]
+    - r-reshape2                 # [build_platform != target_platform]
+    - r-foreach                  # [build_platform != target_platform]
+    - r-proc                     # [build_platform != target_platform]
+    - r-lattice                  # [build_platform != target_platform]
+    - r-ggplot2                  # [build_platform != target_platform]
+    - r-withr                    # [build_platform != target_platform]
+    - r-e1071                    # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
