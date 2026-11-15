@@ -1,4 +1,4 @@
-{% set version = "7.0-1" %}
+{% set version = "7.1-0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/caret_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/caret/caret_{{ version }}.tar.gz
-  sha256: d1ea51a8ce1948718b424bacda84428bd397d8b7869310a96311553d329a815c
+  sha256: 70ffdeb07989ea634d9b93293b6f46062a7daea4e614c47aa4170e76aa2b74a6
 
 build:
   number: 0
